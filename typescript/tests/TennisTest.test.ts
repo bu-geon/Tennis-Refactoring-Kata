@@ -12,7 +12,12 @@ function getAllScores(): Array<[number, number, string]> {
 
 const scores: Array<[number, number, string]> = getAllScores();
 
-function checkScore(game: TennisGame, player1Score: number, player2Score: number, expectedScore: string): void {
+function checkScore(
+  game: TennisGame,
+  player1Score: number,
+  player2Score: number,
+  expectedScore: string
+): void {
   const highestScore: number = Math.max(player1Score, player2Score);
   for (let i = 0; i < highestScore; i++) {
     if (i < player1Score) {
@@ -26,11 +31,15 @@ function checkScore(game: TennisGame, player1Score: number, player2Score: number
 }
 
 describe('TennisGame', function () {
-
   describe('TennisGame1', function () {
     scores.forEach(([player1Score, player2Score, expectedScore]) => {
       it(`scores ${player1Score}:${player2Score} as ${expectedScore}`, function () {
-        checkScore(new TennisGame1('player1', 'player2'), player1Score, player2Score, expectedScore);
+        checkScore(
+          new TennisGame1('player1', 'player2'),
+          player1Score,
+          player2Score,
+          expectedScore
+        );
       });
     });
   });
@@ -38,7 +47,12 @@ describe('TennisGame', function () {
   describe('TennisGame2', function () {
     scores.forEach(([player1Score, player2Score, expectedScore]) => {
       it(`scores ${player1Score}:${player2Score} as ${expectedScore}`, function () {
-        checkScore(new TennisGame2('player1', 'player2'), player1Score, player2Score, expectedScore);
+        checkScore(
+          new TennisGame2('player1', 'player2'),
+          player1Score,
+          player2Score,
+          expectedScore
+        );
       });
     });
   });
@@ -46,9 +60,13 @@ describe('TennisGame', function () {
   describe('TennisGame3', function () {
     scores.forEach(([player1Score, player2Score, expectedScore]) => {
       it(`scores ${player1Score}:${player2Score} as ${expectedScore}`, function () {
-        checkScore(new TennisGame3('player1', 'player2'), player1Score, player2Score, expectedScore);
+        checkScore(
+          new TennisGame3('player1', 'player2'),
+          player1Score,
+          player2Score,
+          expectedScore
+        );
       });
     });
   });
-
 });
